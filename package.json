@@ -1,0 +1,21 @@
+{
+  "name": "cpThree",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "dependencies": {
+    "react": "^15.2.1",
+    "react-native": "^0.29.2",
+    "react-native-circular-progress": "0.0.7",
+    "react-native-datepicker": "^1.2.2",
+    "react-native-gcm-android": "^0.2.0",
+    "react-native-gifted-listview": "0.0.15",
+    "react-native-material-design": "^0.3.6",
+    "react-native-material-kit": "^0.3.2",
+    "react-native-scrollable-tab-view": "^0.5.1",
+    "react-native-system-notification": "^0.1.11",
+    "tcomb-form-native": "^0.5.1"
+  }
+}

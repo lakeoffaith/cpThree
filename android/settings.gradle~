@@ -1,0 +1,7 @@
+rootProject.name = 'cpThree'
+
+include ':app'
+include ':react-native-material-kit'
+project(':react-native-material-kit').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-material-kit/android')
+include ':react-native-system-notification'
+project(':react-native-system-notification').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-system-notification/android')
