@@ -26,7 +26,7 @@ export default class Welcome extends React.Component{
                     </View>
                 <View style={styles.welcomeContainer}>
                     <Text style={styles.welcome}>
-                        无线室内地图
+                        无线管理应用综合软件系统
                     </Text>
                 </View>
             </View>

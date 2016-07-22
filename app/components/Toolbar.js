@@ -29,16 +29,15 @@ export default class Toolbar extends React.Component{
 
         }
         return array;
-
     }
     render(){
         const {navigator}=this.context;
         return(
             <MaterialToolbar
-                title={navigator && navigator.currentRoute ?navigator.currentRoute.title:'医院地图'}
+                title={navigator && navigator.currentRoute ?navigator.currentRoute.title:'Welcome'}
                 icon={navigator && navigator.isChild? 'keyboard-backspace':'menu'}
                 onIconPress={()=> navigator && navigator.isChild ?navigator.back():this.props.onIconPress()}
-                actions={navigator? (navigator.currentRoute?(navigator.currentRoute.actionsArray?this.getArray(navigator.currentRoute.actionsArray):null):this.getArray([{icon:'search',onPressRoute:'UserCenter'}])):null}
+                actions={navigator? (navigator.currentRoute?(navigator.currentRoute.actionsArray?this.getArray(navigator.currentRoute.actionsArray):null):this.getArray([{icon:'notifications',badge:{value:4,animated:true},onPressRoute:'UserCenter'}])):null}
                 rightIconStyle={{
                     margin: 10
                 }}

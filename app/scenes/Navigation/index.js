@@ -43,10 +43,26 @@ export default class Navigation extends React.Component{
                     items={[
                     {
                         icon: 'home',
-                        value: '我的医嘱',
+                        value: 'Welcome',
                         active: !route || route === 'Main',
                         onPress: () => this.changeScene('Main'),
                         onLongPress: () => this.changeScene('Main')
+                    },
+                    {
+                        icon: 'label',
+                        value: 'AP管理',
+                        label: '2',
+                        active: route === 'Ap',
+                        onPress: () => this.changeScene('Ap'),
+                        onLongPress: () => this.changeScene('Ap')
+                    },
+                    {
+                        icon: 'label',
+                        value: '应用管理',
+                        label: '2',
+                        active: route === 'Application',
+                        onPress: () => this.changeScene('Application'),
+                        onLongPress: () => this.changeScene('Application')
                     },
                      {
                         icon: 'label',
