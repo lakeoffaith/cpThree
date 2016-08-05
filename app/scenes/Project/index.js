@@ -14,7 +14,7 @@ import GiftedListView from 'react-native-gifted-listview'
 import {Icon} from 'react-native-material-design'
 import {getColor} from 'react-native-material-design/lib/helpers'
 import {fetchData} from '../../data'
-export default class ListApplication extends  React.Component{
+export default class ListProject extends  React.Component{
     /**
      * Will be called when refreshing
      * Should be replaced by your own logic
@@ -24,14 +24,8 @@ export default class ListApplication extends  React.Component{
      */
     _onFetch(page = 1, callback, options) {
         setTimeout(() => {
-            var rows = fetchData("ApplicationList");
-            if (page === 3) {
-                callback(rows, {
-                    allLoaded: true, // the end of the list is reached
-                });
-            } else {
-                callback(rows);
-            }
+            var rows = fetchData("ProjectData");
+            callback(rows,{allLoaded:true});
         }, 200); // simulating network fetching
     }
 
@@ -43,29 +37,19 @@ export default class ListApplication extends  React.Component{
     _onPress(rowData) {
         console.log(rowData+' pressed');
     }
-    _renderIcon(type){
-        return type? <Icon name='block' size={40} color={type==='error'?'#D50000':'#FFFF00'}/>:null;
-    }
-    _renderColor(type){
-        var colorVal="googleGreen300";
-        switch (type){
-            case "error": colorVal="googleRed300";break;
-            default :break;
-        }
 
-        return {backgroundColor:getColor(colorVal)}
-    }
     _renderRowView(item){
         return(
             <TouchableNativeFeedback onPress={()=>this.changeScene()}>
-                <View style={[styles.item,this._renderColor(item.type)]}>
+                <View style={styles.item}>
                     <View style={{flex:1}}>
                         <Text style={{fontSize:20,color:'blue',marginBottom:5}}>{item.name}</Text>
-                        <Text><Text style={{fontWeight:'bold'}}>应用开始时间：</Text><Text style={{color:'yellow',fontSize:18}}>{item.startData}</Text></Text>
-                        <Text numberOfLines={1}><Text style={{fontWeight:'bold'}}>描述：</Text>{item.info}</Text>
+                        <Text><Text style={{fontWeight:'bold'}}>管理人：</Text><Text>{item.manager}</Text></Text>
+                        <Text numberOfLines={1}><Text style={{fontWeight:'bold'}}>科室：</Text>{item.department}</Text>
                     </View>
-                    <View style={{width:60,justifyContent:'center',alignItems:'center'}}>
-                        {this._renderIcon(item.type)}
+                    <View style={{width:60,justifyContent:'flex-end',alignItems:'flex-end',margin:10}}>
+                            <Icon name="directions" size={30} color={getColor('googleBlue700')}/>
+
                     </View>
 
                 </View>
@@ -75,7 +59,7 @@ export default class ListApplication extends  React.Component{
     changeScene(){
         const {drawer,navigator}=this.context;
 
-        navigator.to('Application.ShowApplication');
+        navigator.to('Project.ShowProject');
         drawer.closeDrawer();
     }
     render(){
@@ -89,12 +73,6 @@ export default class ListApplication extends  React.Component{
                         pagination={true} // enable infinite scrolling using touch to load more
                         refreshable={true} // enable pull-to-refresh for iOS and touch-to-refresh for Android
                         withSections={false} // enable sections
-                        customStyles={{
-            paginationView: {
-              backgroundColor: '#eee',
-            },
-          }}
-
                         refreshableTintColor="blue"
                     />
                 </View>
@@ -104,7 +82,7 @@ export default class ListApplication extends  React.Component{
         );
     }
 }
-ListApplication.contextTypes={
+ListProject.contextTypes={
     navigator:React.PropTypes.object.isRequired,
     drawer:React.PropTypes.object.isRequired,
 }
@@ -114,6 +92,8 @@ styles =StyleSheet.create({
         flexDirection:'row',
         height:80,
         margin:5,
-        borderWidth:0.5
+        borderWidth:0.5,
+        backgroundColor:getColor('googleGreen300'),
+        borderRadius:1
     }
 });

@@ -13,8 +13,7 @@ import {
 import GiftedListView from 'react-native-gifted-listview'
 import {Icon} from 'react-native-material-design'
 import {getColor} from 'react-native-material-design/lib/helpers'
-var VCArrays=[{name:"APCK-001",type:'error',company:'成都维远艾钰信息技术有限公司'},{name:"APCK-006",type:'warning',company:'成都维远艾钰信息技术有限公司'},{name:"APCK-002",type:'warning',company:'成都维远艾钰信息技术有限公司'},{name:"APCK-003",company:'成都维远艾钰信息技术有限公司'},{name:"APCK-004",company:'成都维远艾钰信息技术有限公司'},{name:"APCK-005",company:'成都维远艾钰信息技术有限公司'}];
-
+import {fetchData} from '../../data'
 export default class ListAp extends  React.Component{
     /**
      * Will be called when refreshing
@@ -25,7 +24,7 @@ export default class ListAp extends  React.Component{
      */
     _onFetch(page = 1, callback, options) {
         setTimeout(() => {
-            var rows = VCArrays;
+            var rows = fetchData('ApArrays');
             if (page === 3) {
                 callback(rows, {
                     allLoaded: true, // the end of the list is reached
@@ -63,7 +62,7 @@ export default class ListAp extends  React.Component{
                 <View style={[styles.item,this._renderColor(item.type)]}>
                     <View style={{flex:1}}>
                         <Text style={{fontSize:20,color:'blue',marginBottom:5}}>{item.name}</Text>
-                        <Text><Text style={{fontWeight:'bold'}}>运行时间</Text>：<Text style={{color:'yellow',fontSize:18}}>200</Text>天</Text>
+                        <Text><Text style={{fontWeight:'bold'}}>运行时间</Text>：<Text style={{color:'yellow',fontSize:18}}>{item.runTimes}</Text>小时</Text>
                         <Text><Text style={{fontWeight:'bold'}}>生产厂家</Text>：{item.company}</Text>
                     </View>
                     <View style={{width:60,justifyContent:'center',alignItems:'center'}}>

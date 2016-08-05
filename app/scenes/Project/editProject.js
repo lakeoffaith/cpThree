@@ -16,8 +16,10 @@ import t from 'tcomb-form-native'
 const Form=t.form.Form;
 const AC=t.struct({
     名称:t.String,
-    描述: t.String,  // an optional string
+    管理人员: t.String,  // an optional string
+    科室:t.String,
     开始时间: t.Date,               // a required number
+    结束时间:t.Date
 });
 const dealDate=(d)=>{
     var date=new Date(d);
@@ -33,10 +35,15 @@ const options = {
             config:{
                 format:(date)=>dealDate(date)
             }
+        },
+        结束时间: {
+            config:{
+                format:(date)=>dealDate(date)
+            }
         }
     }
 };
-export default class EditAp extends  React.Component{
+export default class EditProject extends  React.Component{
     componentDidMount() {
         var navigator = this.props.navigator;
         BackAndroid.addEventListener('hardwareBackPress', function() {

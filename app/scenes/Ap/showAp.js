@@ -59,7 +59,7 @@ export default class ShowAp extends  React.Component{
                             <Text style={styles.subjectText}>安装 方:</Text>
                         </View>
                         <View style={styles.info}>
-                            <Text>成都维远艾钰信息技术有限公司</Text>
+                            <Text>成都精图无限信息技术有限公司</Text>
                         </View>
                     </View>
                     <View style={styles.row}>
@@ -67,7 +67,7 @@ export default class ShowAp extends  React.Component{
                             <Text style={styles.subjectText}>生产商:</Text>
                         </View>
                         <View style={styles.info}>
-                            <Text>成都维远艾钰信息技术有限公司</Text>
+                            <Text>成都精图无限信息技术有限公司</Text>
                         </View>
                     </View>
                 </View>

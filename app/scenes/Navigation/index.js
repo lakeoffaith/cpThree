@@ -33,7 +33,7 @@ export default class Navigation extends React.Component{
                 <Drawer.Header>
                     <View style={styles.header}>
                         <Avatar size={80} image={<Image source={require('../../img/timg.jpg')}/>} />
-                        <Text style={[styles.text, COLOR.paperGrey50, TYPO.paperFontSubhead]}>李振纲</Text>
+                        <Text style={[styles.text, COLOR.paperGrey50, TYPO.paperFontSubhead]}>刘强</Text>
                     </View>
                 </Drawer.Header>
 
@@ -49,32 +49,35 @@ export default class Navigation extends React.Component{
                         onLongPress: () => this.changeScene('Main')
                     },
                     {
-                        icon: 'label',
+                        icon: 'device-hub',
                         value: 'AP管理',
-                        label: '2',
                         active: route === 'Ap',
                         onPress: () => this.changeScene('Ap'),
                         onLongPress: () => this.changeScene('Ap')
                     },
                     {
-                        icon: 'label',
+                        icon: 'dock',
                         value: '应用管理',
-                        label: '2',
                         active: route === 'Application',
                         onPress: () => this.changeScene('Application'),
                         onLongPress: () => this.changeScene('Application')
                     },
+                    {
+                        icon: 'poll',
+                        value: '项目管理',
+                        active: route === 'Project',
+                        onPress: () => this.changeScene('Project'),
+                        onLongPress: () => this.changeScene('Project')
+                    },
                      {
-                        icon: 'label',
+                        icon: 'person',
                         value: '个人中心',
-                        label: '2',
                         active: route === 'UserCenter',
                         onPress: () => this.changeScene('UserCenter'),
                         onLongPress: () => this.changeScene('UserCenter')
                     }, {
-                        icon: 'label',
+                        icon: 'settings',
                         value: '系统设置',
-                        label: '2',
                         active: route === 'Setting',
                         onPress: () => this.changeScene('Setting'),
                         onLongPress: () => this.changeScene('Setting')
@@ -84,21 +87,8 @@ export default class Navigation extends React.Component{
 
 
                 </Drawer>
-                <View style={{marginBottom:0,flexDirection:'row',height:40}}>
-
-                    <View  style={{flex:1,backgroundColor:'blue',alignItems:'center',justifyContent:'center'}}>
-                        <TouchableOpacity  onPress={()=>this.changeScene('Login')}>
-                        <Text style={{fontSize:20}}>登录</Text>
-                        </TouchableOpacity >
-                    </View>
-
-                    <View onPress={()=>this.changeScene('Register')} style={{flex:1,backgroundColor:'green',alignItems:'center',justifyContent:'center'}}>
-                        <TouchableOpacity  onPress={()=>this.changeScene('Register')}>
-                            <Text style={{fontSize:20}}>注册</Text>
-                        </TouchableOpacity >
-                    </View>
-                    </View>
                 </View>
+
         );
     }
 }

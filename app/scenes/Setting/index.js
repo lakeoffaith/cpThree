@@ -29,7 +29,7 @@ export default class Setting extends React.Component{
           <View style={{marginTop:10}}>
               <View style={styles.Item}>
                     <View style={{flex:1,justifyContent:'center'}}>
-                        <Text>AC出错系统通知</Text>
+                        <Text>AP出错系统通知</Text>
                     </View>
                     <View style={{width:80,justifyContent:'center'}}>
                         <MKSwitch

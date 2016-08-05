@@ -38,6 +38,21 @@ export default{
             }
         }
     },
+    Project:{
+        title:'项目管理',
+        component:require('./scenes/Project').default,
+        actionsArray:[{icon:'add',onPressRoute:'Project.EditProject'}],
+        children:{
+            EditProject:{
+                title:'增加项目',
+                component:require('./scenes/Project/editProject').default
+            },
+            ShowProject:{
+                title:'项目详细',
+                component:require('./scenes/Project/showProject').default
+            }
+        }
+    },
     Login: {
         title: '登录',
         component: require('./scenes/Login').default

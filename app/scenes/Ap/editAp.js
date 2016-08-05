@@ -70,7 +70,7 @@ export default class EditAp extends  React.Component{
                     options={options}
                 />
                 <TouchableHighlight style={styles.button} onPress={this.onPress.bind(this)} underlayColor='#99d9f4'>
-                    <Text style={styles.buttonText}>Save</Text>
+                    <Text style={styles.buttonText}>保存</Text>
                 </TouchableHighlight>
                     </View>
             </View>
@@ -82,7 +82,6 @@ export default class EditAp extends  React.Component{
 var styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
-        marginTop: 50,
         padding: 20,
         backgroundColor: '#ffffff',
     },
